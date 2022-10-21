@@ -36,6 +36,15 @@ namespace QuickSort
                 arr[i] = Int32.Parse(s1);
             }
         }
-        
+        //swaps the element at index x with the element at index y
+        void swap(int x, int y)
+        {
+            int temp;
+
+            temp = arr[x];
+            arr[x] = arr[y];
+            arr[y] = temp;
+        }
+
     }
 }
