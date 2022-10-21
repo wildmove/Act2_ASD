@@ -2,7 +2,7 @@
 
 namespace QuickSort
 {
-    class Program
+    class Pr
     {
         //array of integers to hold values
         private int[] arr = new int[20];
@@ -12,7 +12,7 @@ namespace QuickSort
         // Number of elements in array
         private int n;
 
-        void input ()
+        void input()
         {
             while (true)
             {
@@ -114,7 +114,7 @@ namespace QuickSort
         static void Main(string[] args)
         {
             //Declaring the object of the class
-            Program myList = new Program();
+            Pr myList = new Pr();
             //Accept array elements
             myList.input();
             //Calling the sorting function
