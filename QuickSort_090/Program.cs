@@ -6,8 +6,8 @@ namespace QuickSort
     {
         //array of integers to hold values
         private int[] arr = new int[20];
-        private int cmp_mount = 0; // number of comparison
-        private int mov_sort = 0; // number of data movements
+        private int cmp_count = 0; // number of comparison
+        private int mov_count = 0; // number of data movements
 
         // Number of elements in array
         private int n;
@@ -45,6 +45,54 @@ namespace QuickSort
             arr[x] = arr[y];
             arr[y] = temp;
         }
+
+        public void q_sort(int low, int high)
+        {
+            int pivot, i, j;
+            if (low > high)
+                return;
+
+            //Partition the list into two parts:
+            //one containing elements less that or equal to pivot
+            //Outher containing elments greater than pivot
+
+            i = low + 1;
+            j = high;
+
+            pivot = arr[low];
+
+            while (i<= j)
+            {
+                //Search for an element greater than pivot
+                while ((arr[i] <= pivot) && (i <= high))
+                {
+                    i++;
+                    cmp_count++;
+                }
+                cmp_count++;
+
+                if (i < j) //if the greater element is on the left the element
+                {
+                    //swap the element at index i with the elemen at index j
+                    swap(i, j);
+                    mov_count++;
+                }
+            }
+            //j now contains the index of the last element in the sorted list
+
+            if (low < j)
+            {
+                //Move the pivot to its correct position in the lsit
+                swap(j, low);
+                mov_count++;
+            }
+            //Sort the list on the left of pivot using quick sort
+            q_sort(low, j - 1);
+
+            //Sort the list on the right of pivot using quick sort
+            q_sort(j + 1, high);
+        }
+
 
     }
 }
